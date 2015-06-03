@@ -10,23 +10,15 @@
     <script src="../Baseballapp/js/Scoreboard.js"></script>
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="../Baseballapp/images/favicon.ico" sizes="16x16">
-    <link rel="apple-touch-icon" sizes="57x57" href="../Baseballapp/images/favicon.ico">
-<!-- apple-touch-icon-114x114.png - iPhone (with 2× display) iOS = 6 -->
-<link rel="apple-touch-icon" sizes="114x114" href="../Baseballapp/images/favicon.ico">
-<!-- apple-touch-icon-72x72.png - iPad mini and the first- and second-generation iPad (1× display) on iOS = 6 -->
-<link rel="apple-touch-icon" sizes="72x72" href="../Baseballapp/images/favicon.ico">
-<!-- apple-touch-icon-144x144.png - iPad (with 2× display) iOS = 6 -->
-<link rel="apple-touch-icon" sizes="144x144" href="../Baseballapp/images/favicon.ico">
-<!-- apple-touch-icon-60x60.png - Same as apple-touch-icon-57x57.png, for non-retina iPhone with iOS7. -->
-<link rel="apple-touch-icon" sizes="60x60" href="../Baseballapp/images/favicon.ico">
-<!-- apple-touch-icon-120x120.png - iPhone (with 2× and 3 display) iOS = 7 -->
-<link rel="apple-touch-icon" sizes="120x120" href="../Baseballapp/images/favicon.ico">
-<!-- apple-touch-icon-76x76.png - iPad mini and the first- and second-generation iPad (1× display) on iOS = 7 -->
-<link rel="apple-touch-icon" sizes="76x76" href="../Baseballapp/images/favicon.ico">
-<!-- apple-touch-icon-152x152.png - iPad 3+ (with 2× display) iOS = 7 -->
-<link rel="apple-touch-icon" sizes="152x152" href="../Baseballapp/images/favicon.ico">
-<!-- apple-touch-icon-180x180.png - iPad and iPad mini (with 2× display) iOS = 8 -->
-<link rel="apple-touch-icon" sizes="180x180" href="../Baseballapp/images/favicon.ico">
+    <link rel="shortcut icon" href="../Baseballapp/images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="../Baseballapp/images/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="../Baseballapp/images/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="../Baseballapp/images/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="../Baseballapp/images/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="../Baseballapp/images/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="../Baseballapp/images/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="../Baseballapp/images/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="../Baseballapp/images/apple-touch-icon-152x152.png" />
     <title>Fantasy Scoreboard</title>
 </head>
 
@@ -54,9 +46,9 @@
                     <!--<h1 ng-if="team.team_flag==' home'"><b>{{game[0].data.data.boxscore.home_fname | uppercase}}</b></h1>
                  <h1 ng-if="team.team_flag == 'away'"><b>{{game[0].data.data.boxscore.away_fname | uppercase}}</b></h1>-->
                     <div ng-repeat="x in team.batter" ng-if="(x.pos != 'P') && (myTeam.indexOf(x.id)>-1)">
-                        <!--{{numberInTheOrder(x.bo)}}-->{{ x.name_display_first_last }}, {{x.pos}} <b>({{x.id}})</b> 
-                        <a style="float:right" ng-value="$index">
-                          <a style="float:right" ng-attr-id="{{x.id + '-' + $index}}" data-ng-init="gatherIds(x.id + '-' + $index)"> {{getScore($index, x) }}</a> <a style="float:right">Points: </a>
+                        <!--{{numberInTheOrder(x.bo)}}-->{{ x.name_display_first_last }}, {{x.pos}} <b>({{x.id}})</b>
+                        <a style="float:right" ng-value="$index"> 
+                          <a style="float:right" ng-attr-id="{{x.id + '-' + $parent.$parent.$parent.$index + $parent.$parent.$index + $parent.$index}}" data-ng-init="gatherIds(x.id + '-' + $parent.$parent.$parent.$index + $parent.$parent.$index + $parent.$index)"> {{getScore($index, x) }}</a> <a style="float:right">Points: </a>
                         </a>
                         <b>                
                       <table>
@@ -121,10 +113,7 @@
             </table>
             </b>
           </div>
-          {{idsToLookFor}}
-          <br>
-                    {{Joel}}
-            <div><a style="float:right" data-ng-init=getTotal()"><b>Total Points for The Day:    {{ total }}</b></a></div>
+            <div><a style="float:right" data-ng-init=getTotal()"><b>Total Points for The Day:    {{ getTotal() }}</b></a></div>
                     
         </div>
 
